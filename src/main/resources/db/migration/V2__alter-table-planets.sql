@@ -1,0 +1,1 @@
+ALTER TABLE tb_planets ADD COLUMN times_in_movie INTEGER NOT NULL;
