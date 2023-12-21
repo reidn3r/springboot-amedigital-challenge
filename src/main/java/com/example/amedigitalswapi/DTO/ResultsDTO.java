@@ -3,12 +3,13 @@ package com.example.amedigitalswapi.DTO;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
 @Setter
-public class ResultsDTO {
+public class ResultsDTO implements Serializable {
     public String name;
     public String rotation_period;
     public String orbital_period;

@@ -35,11 +35,9 @@ public class ControllerService {
         /* Verificar se é um planeta válido */
         int index = 1;
         while(index <= 6){
-            ResponseEntity<APIPageDTO> response = this.swapiService.GetPlanetPageByIndex(index);
-            if(!response.getStatusCode().equals(HttpStatus.OK)){
-                throw new Exception("Erro ao consumir API");
-            }
-            List<ResultsDTO> results = response.getBody().getResults();
+            APIPageDTO response = this.swapiService.GetPlanetPageByIndex(index);
+            List<ResultsDTO> results = response.getResults();
+
             for(var result : results){
                 if(result.getName().equals(data.name())){
                     Planet newPlanet = new Planet(result, data.climate(), data.terrain());
