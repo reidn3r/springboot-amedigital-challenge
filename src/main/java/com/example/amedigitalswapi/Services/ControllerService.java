@@ -37,7 +37,6 @@ public class ControllerService {
         while(index <= 6){
             APIPageDTO response = this.swapiService.GetPlanetPageByIndex(index);
             List<ResultsDTO> results = response.getResults();
-
             for(var result : results){
                 if(result.getName().equals(data.name())){
                     Planet newPlanet = new Planet(result, data.climate(), data.terrain());
