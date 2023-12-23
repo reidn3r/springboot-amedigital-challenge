@@ -38,7 +38,7 @@ public class ControllerService {
             APIPageDTO response = this.swapiService.GetPlanetPageByIndex(index);
             List<ResultsDTO> results = response.getResults();
             for(var result : results){
-                if(result.getName().equals(data.name())){
+                if(result.getName().equalsIgnoreCase(data.name())){
                     Planet newPlanet = new Planet(result, data.climate(), data.terrain());
                     return ResponseEntity.status(HttpStatus.CREATED).body(planetService.SavePlanet(newPlanet));
                 }
